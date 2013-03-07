@@ -37,6 +37,15 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+Route::get('/child', array('as' => 'index', 'uses' => 'child@index'));
+Route::get('/child/(:any)', array('as' => 'view', 'uses' => 'child@view'));
+Route::get('/child/create', array('as' => 'create', 'uses' => 'child@create'));
+
+Route::post('/child/add', array('uses' => 'child@add'));
+Route::put('/child/update', array('uses' => 'child@update'));
+Route::delete('/child/delete', array('uses' => 'child@destroy'));
+
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
